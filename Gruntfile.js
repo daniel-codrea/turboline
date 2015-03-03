@@ -194,7 +194,8 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         ignorePath: /^\/|\.\.\//,
-        src: ['<%= config.app %>/index.html'],
+        src: ['<%= config.app %>/index.html',
+						 '<%= config.app %>/faq.html'],
         exclude: ['bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js']
       },
       sass: {
@@ -225,7 +226,8 @@ module.exports = function (grunt) {
       options: {
         dest: '<%= config.dist %>'
       },
-      html: '<%= config.app %>/index.html'
+      html: ['<%= config.app %>/index.html',
+						'<%= config.app %>/faq.html']
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
