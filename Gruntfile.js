@@ -1,4 +1,4 @@
-// Generated on 2015-02-28 using
+// Generated on 2015-03-03 using
 // generator-webapp 0.5.1
 'use strict';
 
@@ -9,9 +9,6 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-  grunt.loadNpmTasks('grunt-favicons');
-  grunt.loadNpmTasks('grunt-image-resize');
-  grunt.renameTask('image_resize', 'imageResize');
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -30,35 +27,6 @@ module.exports = function (grunt) {
 
     // Project settings
     config: config,
-			
-			favicons: {
-					options: {
-							trueColor: true,
-							appleTouchBackgroundColor: '#bb0000',
-							coast: true,
-							windowsTile: true,
-							tileBlackWhite: false,
-							tileColor: '#bb0000',
-							html: '.tmp/index.html',
-							HTMLPrefix: '/'
-					},
-					icons: {
-							src: '<%= config.app %>/images/favicon.png',
-							dest: '<%= config.dist %>/'
-					}
-			},
-
-      image_resize: {
-          resize: {
-              options: {
-                  quality: 0.7,
-                  height: '100%',
-                  overwrite: true
-              },
-              src: '<%= config.app %>/images/*.{jpg,jpeg}',
-              dest: '<%= config.dist %>/images/'
-          }
-      },
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -457,7 +425,6 @@ module.exports = function (grunt) {
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
-		'image_resize',
     'autoprefixer',
     'concat',
     'cssmin',
@@ -466,7 +433,6 @@ module.exports = function (grunt) {
     'modernizr',
     'rev',
     'usemin',
-		'favicons',
     'htmlmin'
   ]);
 
