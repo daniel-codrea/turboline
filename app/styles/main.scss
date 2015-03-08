@@ -3,7 +3,6 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
-@import "flexslider-compass/flexslider.scss";
 
 @import "variables";
 @import "animate";
@@ -272,9 +271,7 @@ section {
   color: $green;
 }
 .greyscaled {
-  -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
-  filter: gray;
 }
 .grey-background {
   background: #eee;

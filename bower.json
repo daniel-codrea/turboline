@@ -5,8 +5,5 @@
     "bootstrap-sass-official": "~3.2.0",
     "modernizr": "~2.8.2"
   },
-  "devDependencies": {
-    "flexslider-compass": "*",
-    "jquery.easing": "~1.3.1"
-  }
+  "devDependencies": {}
 }
