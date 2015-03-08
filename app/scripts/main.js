@@ -40,6 +40,7 @@ $('.flexslider').flexslider({
     slideshowSpeed: 8000,
     animationSpeed: 1800,
     start: function ( slider ) {
+        console.log(slider);
         $('li .caption_1').addClass('animated bounceInLeft');
     },
     before: function ( slider ) {
@@ -75,5 +76,33 @@ function run() {
 run();
 
 $('#carousel-clients').carousel({
-    interval: 1500 
-})
+    interval: 6500 
+});
+
+$('#carousel-marci').carousel({
+    interval: 7500 
+});
+
+$('.carousel-round-images').carousel({
+    interval: 4500 
+});
+
+$('.carousel-round-images-1').carousel({
+    interval: 5500 
+});
+
+$('.carousel-round-images-2').carousel({
+    interval: 4500 
+});
+$('.carousel-round-images-3').carousel({
+    interval: 5500 
+});
+
+$('#carousel-marci').find('img').each( function () {
+    $(this).hover( function () {
+        $(this).toggleClass('greyscaled');
+    });
+});
+
+
+
