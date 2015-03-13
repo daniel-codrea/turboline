@@ -3,25 +3,6 @@
 var currentDate = new Date();
 $('#currentYear').html((currentDate).getFullYear());
 
-$(function() {
-    $('a[href*=#]:not([href=#], .noJumpLink)').click(function() {
-        if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-            if (target.length) {
-                $('html,body').animate({
-                    scrollTop: (target.offset().top - 80)
-                }, 1000);
-                return false;
-            }
-        }
-    });
-  $('.nav a').on('click', function(){
-    $('.nav li').removeClass('active');
-    $(this).parent().addClass('active');
-  });
-});
-
 $('.navbar-brand').click(function(){
 	$('.navbar-collapse').removeClass('in');
 	$('.navbar-collapse li').removeClass('active');
@@ -101,6 +82,69 @@ $('.carousel-round-images-3').carousel({
 $('#carousel-marci').find('img').each( function () {
     $(this).hover( function () {
         $(this).toggleClass('greyscaled');
+    });
+});
+
+// validate contact form
+$(function() {
+    $('#contactForm').validate({
+        rules: {
+            name: {
+                required: true,
+                minlength: 2
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            phone: {
+                required: true,
+                minlength: 10,
+                digits: true,
+            },
+            message: {
+                required: true,
+                minlength: 4
+            }
+        },
+        messages: {
+            name: {
+                required: 'Va rugam sa va precizati numele complet.',
+                minlength: 'Numele dumneavoastra trebuie sa contina cel putin 2 caractere.'
+            },
+            email: {
+                required: 'Va rugam sa folositi o adresa de email valida.'
+            },
+            phone: {
+                required: 'Va rugam sa precizati un numar de telefon.',
+                minlength: 'Numarul de telefon trebuie sa contina cel putin 10 caractere',
+                digits: 'Va rugam sa folositi doar cifre de la 0 la 9, fara alt tip de caractere'
+            },
+            message: {
+                required: 'Va rugam sa transmiteti un mesaj.',
+                minlength: 'Mesajul dumneavoastra trebuie sa contina cel putin 4 caractere'
+            }
+        },
+        submitHandler: function(form) {
+            $(form).ajaxSubmit({
+                type:'POST',
+                data: $(form).serialize(),
+                url:'../send_mail.php',
+                success: function() {
+                    $('#contactForm :input').attr('disabled', 'disabled');
+                    $('#contactForm').fadeTo( 'slow', 0.15, function() {
+                        $(this).find(':input').attr('disabled', 'disabled');
+                        $(this).find('label').css('cursor','default');
+                        $('#success').fadeIn();
+                    });
+                },
+                error: function() {
+                    $('#contactForm').fadeTo( 'slow', 0.15, function() {
+                        $('#error').fadeIn();
+                    });
+                }
+            });
+        }
     });
 });
 

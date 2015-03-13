@@ -144,7 +144,11 @@ module.exports = function (grunt) {
       all: {
         options: {
           run: true,
-          urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
+          urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html',
+          'http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/servicii.html',
+          'http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/reparatii-turbosuflante.html',
+          'http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/garantie.html',
+          'http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/contact.html']
         }
       }
     },
@@ -195,7 +199,10 @@ module.exports = function (grunt) {
       app: {
         ignorePath: /^\/|\.\.\//,
         src: ['<%= config.app %>/index.html',
-						 '<%= config.app %>/faq.html'],
+						 '<%= config.app %>/servicii.html',
+             '<%= config.app %>/reparatii-turbosuflante.html',
+             '<%= config.app %>/garantie.html',
+             '<%= config.app %>/contact.html'],
         exclude: ['bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js']
       },
       sass: {
@@ -227,7 +234,10 @@ module.exports = function (grunt) {
         dest: '<%= config.dist %>'
       },
       html: ['<%= config.app %>/index.html',
-						'<%= config.app %>/faq.html']
+            '<%= config.app %>/servicii.html',
+            '<%= config.app %>/reparatii-turbosuflante.html',
+            '<%= config.app %>/garantie.html',
+            '<%= config.app %>/contact.html']
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
@@ -326,6 +336,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             'images/{,*/}*.webp',
             '{,*/}*.html',
+            'send_mail.php',
             'styles/fonts/{,*/}*.*'
           ]
         }, {
