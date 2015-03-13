@@ -337,6 +337,8 @@ module.exports = function (grunt) {
             'images/{,*/}*.webp',
             '{,*/}*.html',
             'send_mail.php',
+            'manifest.json',
+            'browserconfig.xml',
             'styles/fonts/{,*/}*.*'
           ]
         }, {
