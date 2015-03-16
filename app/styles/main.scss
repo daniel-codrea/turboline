@@ -227,48 +227,11 @@ section.text-section .container {
     border-radius: 150px;
   }
 }
-.testimonial {
-  min-height: 280px;
-  p {
-    position: relative;
-    background-color: #f5f5f5;
-    padding: 20px 50px;
-    border-radius: 20px;
-    margin: 0;
-    &:before, &:after {
-      font-family: Georgia, serif;
-      color: #999;
-      content: "\201C";
-      font-size: 80px;
-      font-style: normal;
-      line-height: 1;
-      position: absolute;
-    }
-    &:before {
-      left: 10px;
-      top: 0;
-    }
-    &:after {
-      bottom: -0.5em;
-      content: "\201D";
-      right: 10px;
-    }
-  }
-  .testimonial-arrow-down {
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-top: 15px solid #f5f5f5;
-    height: 0;
-    margin: 0 0 0 25px;
-    width: 0;
-  }
-  h5 {
-    font-weight: 600;
-    img {
-      width: 130px;
-      margin-bottom: 5px;
-    }
-  }
+
+.turbo {
+  border: 5px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 /* Contact section */
@@ -368,6 +331,9 @@ footer {
 .fs20 {
   font-size: 20px;
 }
+.fs24 {
+  font-size: 24px;
+}
 .fs28 {
   font-size: 28px;
   text-shadow: 0 1px 1px rgba(0,0,0,0.8);
@@ -426,6 +392,13 @@ footer {
       margin: 0;
     }
   }
+  .contact-details,
+  .shift-right {
+    padding-left: 65px;
+  }
+  .shift-right {
+    display: inline-block;
+  }
 }
 
 .panel-default > .panel-heading {
@@ -463,6 +436,10 @@ footer {
   }
 }
 
+.strong-line {
+  margin: 10px 0;
+  border-top: 4px solid #eee;
+}
 .strong-line-1 {
   margin: 30px 0 60px;
   border-top: 4px solid #eee;
@@ -471,3 +448,7 @@ footer {
   margin: 45px 0 30px;
   border-top: 4px solid #eee;
 }
+.uppercase {
+  text-transform: uppercase;
+}
+
